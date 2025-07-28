@@ -45,19 +45,84 @@ const labels = {
 };
 
 const dummyData = [
-  { company: "Railway Tourist Bungalow", owner: "M S D Priyantha", amount: "LKR 413.00", date: "12 Apr 2025" },
-  { company: "Sunset Hotel", owner: "Nirosha Perera", amount: "LKR 500.00", date: "10 Apr 2025" },
-  { company: "Ocean View Café", owner: "Tharindu Silva", amount: "LKR 350.00", date: "11 Apr 2025" },
-  { company: "Green Leaf Spa", owner: "Harsha Bandara", amount: "LKR 600.00", date: "13 Apr 2025" },
-  { company: "Central Bookstore", owner: "Sajith Karunaratne", amount: "LKR 290.00", date: "09 Apr 2025" },
-  { company: "Golden Bakery", owner: "Menaka Gunasekara", amount: "LKR 275.00", date: "08 Apr 2025" },
-  { company: "Lanka Motors", owner: "Dulaj Fernando", amount: "LKR 750.00", date: "07 Apr 2025" },
-  { company: "Colombo Print House", owner: "Sachini Madushani", amount: "LKR 430.00", date: "06 Apr 2025" },
-  { company: "Lotus Pharmacy", owner: "Sanduni Wickrama", amount: "LKR 315.00", date: "05 Apr 2025" },
-  { company: "Fashion World", owner: "Dinesh Priyankara", amount: "LKR 800.00", date: "04 Apr 2025" },
-  { company: "Rainbow Florist", owner: "Thisaru Weerasinghe", amount: "LKR 220.00", date: "03 Apr 2025" },
-  { company: "City Tech Solutions", owner: "Gayan Dissanayake", amount: "LKR 1000.00", date: "02 Apr 2025" },
-  { company: "Victory Electronics", owner: "Shanaka Dilshan", amount: "LKR 720.00", date: "01 Apr 2025" },
+  {
+    company: "Railway Tourist Bungalow",
+    owner: "M S D Priyantha",
+    amount: "LKR 413.00",
+    date: "12 Apr 2025",
+  },
+  {
+    company: "Sunset Hotel",
+    owner: "Nirosha Perera",
+    amount: "LKR 500.00",
+    date: "10 Apr 2025",
+  },
+  {
+    company: "Ocean View Café",
+    owner: "Tharindu Silva",
+    amount: "LKR 350.00",
+    date: "11 Apr 2025",
+  },
+  {
+    company: "Green Leaf Spa",
+    owner: "Harsha Bandara",
+    amount: "LKR 600.00",
+    date: "13 Apr 2025",
+  },
+  {
+    company: "Central Bookstore",
+    owner: "Sajith Karunaratne",
+    amount: "LKR 290.00",
+    date: "09 Apr 2025",
+  },
+  {
+    company: "Golden Bakery",
+    owner: "Menaka Gunasekara",
+    amount: "LKR 275.00",
+    date: "08 Apr 2025",
+  },
+  {
+    company: "Lanka Motors",
+    owner: "Dulaj Fernando",
+    amount: "LKR 750.00",
+    date: "07 Apr 2025",
+  },
+  {
+    company: "Colombo Print House",
+    owner: "Sachini Madushani",
+    amount: "LKR 430.00",
+    date: "06 Apr 2025",
+  },
+  {
+    company: "Lotus Pharmacy",
+    owner: "Sanduni Wickrama",
+    amount: "LKR 315.00",
+    date: "05 Apr 2025",
+  },
+  {
+    company: "Fashion World",
+    owner: "Dinesh Priyankara",
+    amount: "LKR 800.00",
+    date: "04 Apr 2025",
+  },
+  {
+    company: "Rainbow Florist",
+    owner: "Thisaru Weerasinghe",
+    amount: "LKR 220.00",
+    date: "03 Apr 2025",
+  },
+  {
+    company: "City Tech Solutions",
+    owner: "Gayan Dissanayake",
+    amount: "LKR 1000.00",
+    date: "02 Apr 2025",
+  },
+  {
+    company: "Victory Electronics",
+    owner: "Shanaka Dilshan",
+    amount: "LKR 720.00",
+    date: "01 Apr 2025",
+  },
 ];
 
 const PaymentConfirmation = () => {
@@ -92,8 +157,16 @@ const PaymentConfirmation = () => {
             <option>Collector 1</option>
             <option>Collector 2</option>
           </select>
-          <input type="text" placeholder={t.amount} className="p-2 border rounded" />
-          <input type="text" placeholder={t.receipt} className="p-2 border rounded" />
+          <input
+            type="text"
+            placeholder={t.amount}
+            className="p-2 border rounded"
+          />
+          <input
+            type="text"
+            placeholder={t.receipt}
+            className="p-2 border rounded"
+          />
         </div>
         <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded shadow">
           {t.confirm}
@@ -101,9 +174,7 @@ const PaymentConfirmation = () => {
       </div>
 
       {/* History */}
-      <h3 className="text-lg font-semibold text-green-800 mb-4">
-        {t.history}
-      </h3>
+      <h3 className="text-lg font-semibold text-green-800 mb-4">{t.history}</h3>
 
       {/* Desktop Table */}
       <div className="hidden sm:block">
@@ -133,10 +204,18 @@ const PaymentConfirmation = () => {
       <div className="sm:hidden space-y-4">
         {paginatedData.map((item, index) => (
           <div key={index} className="bg-gray-50 p-4 rounded shadow">
-            <p><strong>{t.company}:</strong> {item.company}</p>
-            <p><strong>{t.owner}:</strong> {item.owner}</p>
-            <p><strong>{t.paid}:</strong> {item.amount}</p>
-            <p><strong>{t.date}:</strong> {item.date}</p>
+            <p>
+              <strong>{t.company}:</strong> {item.company}
+            </p>
+            <p>
+              <strong>{t.owner}:</strong> {item.owner}
+            </p>
+            <p>
+              <strong>{t.paid}:</strong> {item.amount}
+            </p>
+            <p>
+              <strong>{t.date}:</strong> {item.date}
+            </p>
           </div>
         ))}
       </div>
@@ -147,10 +226,11 @@ const PaymentConfirmation = () => {
           <button
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            className={`w-8 h-8 rounded ${currentPage === i + 1
-              ? "bg-green-600 text-white"
-              : "bg-green-100 text-green-800"
-              }`}
+            className={`w-8 h-8 rounded ${
+              currentPage === i + 1
+                ? "bg-green-600 text-white"
+                : "bg-green-100 text-green-800"
+            }`}
           >
             {i + 1}
           </button>
